@@ -19,6 +19,15 @@
 # Please keep in mind this code has only been tested on a Windows environment, downloading files might need
 # to be changed on an other operating system.
 
+# read command line arguments
+args <- commandArgs(trailingOnly = TRUE)
+# set download to FALSE if no argument is given (default)
+if (is.na(args[1])) {
+	download <- FALSE
+} else {
+	download <- as.logical(args[1])
+}
+
 library(plyr)
 library(LaF)
 library(reshape2)
@@ -65,13 +74,14 @@ load_data <- function(directory, datasetname) {
   result
 }
 
-
-# data source location
-zipF <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-# as the URL is https this setting has to be enabled to allow downloading of files
-setInternet2(TRUE)
-# download zip file in binary format
-download.file(zipF, destfile="getdata_projectfiles_UCI_HAR_Dataset.zip", mode="wb")
+if (download) {  # download only if command line argument TRUE is given
+  # data source location
+  zipF <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+  # as the URL is https this setting has to be enabled to allow downloading of files
+  setInternet2(TRUE)
+  # download zip file in binary format
+  download.file(zipF, destfile="getdata_projectfiles_UCI_HAR_Dataset.zip", mode="wb")
+}
 # unzip data file
 unzip("getdata_projectfiles_UCI_HAR_Dataset.zip")
 
