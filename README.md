@@ -1,2 +1,3 @@
-# gettingandcleaningdata
-Getting And Cleaning Data - Course Project 
+# Human Activity Recognition
+### Coursera - Getting And Cleaning Data - Course Project
+
