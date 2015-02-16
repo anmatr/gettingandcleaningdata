@@ -75,12 +75,12 @@ load_data <- function(directory, datasetname) {
 }
 
 if (download) {  # download only if command line argument TRUE is given
-  # data source location
-  zipF <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-  # as the URL is https this setting has to be enabled to allow downloading of files
-  setInternet2(TRUE)
-  # download zip file in binary format
-  download.file(zipF, destfile="getdata_projectfiles_UCI_HAR_Dataset.zip", mode="wb")
+	# data source location
+	zipF <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+	# as the URL is https this setting has to be enabled to allow downloading of files
+	setInternet2(TRUE)
+	# download zip file in binary format
+	download.file(zipF, destfile="getdata_projectfiles_UCI_HAR_Dataset.zip", mode="wb")
 }
 # unzip data file
 unzip("getdata_projectfiles_UCI_HAR_Dataset.zip")
